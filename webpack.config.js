@@ -1,6 +1,8 @@
 // webpack.config.js
 const path = require("node:path");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -18,6 +20,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/bearysBreakfastBar.html",
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/img", to: "img" }
+      ]
+    })
   ],
   module: {
     rules: [
